@@ -23,19 +23,19 @@ import ActionPermissions from '@stoe/action-permissions-cli'
     }
 
     if (csv !== '') {
-      const csvPath = join(process.env.PWD, csv)
+      const csvPath = join(process.env.GITHUB_WORKSPACE, csv)
       const {dir: csvDir} = parse(csvPath)
 
-      if (csvDir.indexOf(process.env.PWD) < 0) {
+      if (csvDir.indexOf(process.env.GITHUB_WORKSPACE) < 0) {
         throw new Error(`${csv} is not an allowed path`)
       }
     }
 
     if (md !== '') {
-      const mdPath = join(process.env.PWD, md)
+      const mdPath = join(process.env.GITHUB_WORKSPACE, md)
       const {dir: mdDir} = parse(mdPath)
 
-      if (mdDir.indexOf(process.env.PWD) < 0) {
+      if (mdDir.indexOf(process.env.GITHUB_WORKSPACE) < 0) {
         throw new Error(`${md} is not an allowed path`)
       }
     }
