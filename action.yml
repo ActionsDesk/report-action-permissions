@@ -1,0 +1,43 @@
+name: 'report-action-permissions'
+description: 'Action to create a CSV or Markdown report of GitHub Actions permissions'
+
+inputs:
+  token:
+    description: 'GitHub Personal Access Token (PAT) with appropriate user/organization/enterprise scope'
+    required: true
+  enterprise:
+    description: 'GitHub Enterprise Cloud account slug'
+    required: false
+  owner:
+    description: |
+      GitHub organization/user login
+      If owner is a user, results for the authenticated user will be returned
+    required: false
+  csv:
+    description: 'Path to CSV for the output, e.g. /path/to/action-permissions.csv'
+    default: ''
+    required: false
+  md:
+    description: 'Path to markdown for the output, e.g. /path/to/action-permissions.md'
+    default: ''
+    required: false
+  push_results_to_repo:
+    description: Push the CSV/markdown results to the repoository
+    default: 'false'
+    required: false
+
+outputs:
+  csv_result:
+    description: 'GitHub Actions permissions as CSV (only if `csv` input provided)'
+  md_result:
+    description: 'GitHub Actions permissions as markdown (only if `md` input provided)'
+  json_result:
+    description: 'GitHub Actions permissions as JSON'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'check-circle'
+  color: 'green'

@@ -1,0 +1,54 @@
+{
+  "name": "report-action-permissions",
+  "version": "1.0.0",
+  "description": "Action to create a CSV or Markdown report of GitHub Actions permissions",
+  "keywords": [],
+  "author": {
+    "name": "GitHub Professional Services",
+    "email": "services@github.com",
+    "url": "https://services.github.com"
+  },
+  "contributors": [
+    {
+      "name": "Stefan Stölzle",
+      "email": "stoe@github.com",
+      "url": "https://github.com/stoe"
+    }
+  ],
+  "license": "MIT",
+  "repository": "github:ActionsDesk/report-action-permissions",
+  "engines": {
+    "node": ">=14",
+    "npm": ">=7"
+  },
+  "main": "action.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "npx @vercel/ncc build action.js --out dist --license licenses.txt --quiet --minify",
+    "format": "npx prettier --config-precedence prefer-file --write . && eslint . --fix",
+    "pretest": "npx eslint-config-prettier .eslintrc.json",
+    "test": "eslint .",
+    "prepare": "husky install ./.github/husky"
+  },
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "@stoe/action-permissions-cli": "^1.0.1"
+  },
+  "devDependencies": {
+    "@github/prettier-config": "^0.0.4",
+    "@vercel/ncc": "^0.31.1",
+    "eslint": "^7.32.0, <8",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-github": "^4.3.2",
+    "husky": "^7.0.2",
+    "rimraf": "^3.0.2"
+  },
+  "prettier": "@github/prettier-config",
+  "husky": {
+    "hooks": {
+      "pre-commit": "./.github/husky/pre-commit",
+      "pre-push": "./.github/husky/pre-push"
+    }
+  }
+}
