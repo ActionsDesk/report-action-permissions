@@ -74,13 +74,6 @@ import ActionPermissions from '@stoe/action-permissions-cli'
     if (md !== '') {
       const mdOut = await fap.saveMarkdown(actions)
 
-      console.log({
-        ...commitOptions,
-        path: md,
-        message: `Save/Update GitHub Actions usage report (md)`,
-        content: Buffer.from(mdOut).toString('base64')
-      })
-
       if (pushToRepo) {
         await pushFileToRepo(octokit, {
           ...commitOptions,
