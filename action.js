@@ -1,8 +1,7 @@
 import {context, getOctokit} from '@actions/github'
 import {getBooleanInput, getInput, setFailed, setOutput} from '@actions/core'
 import {join, parse} from 'path'
-// eslint-disable-next-line import/no-unresolved
-import ActionPermissions from '@stoe/action-permissions-cli'
+import ActionPermissions from '@stoe/action-permissions-cli/utils/action-permissions'
 
 // action
 ;(async () => {
