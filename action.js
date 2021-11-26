@@ -61,7 +61,7 @@ import ActionPermissions from '@stoe/action-permissions-cli/utils/action-permiss
         await pushFileToRepo(octokit, {
           ...commitOptions,
           path: csv,
-          message: `Save/Update GitHub Actions usage report (csv)`,
+          message: `Save/Update GitHub Actions permissions report (csv)`,
           content: Buffer.from(csvOut).toString('base64')
         })
       }
@@ -77,7 +77,7 @@ import ActionPermissions from '@stoe/action-permissions-cli/utils/action-permiss
         await pushFileToRepo(octokit, {
           ...commitOptions,
           path: md,
-          message: `Save/Update GitHub Actions usage report (md)`,
+          message: `Save/Update GitHub Actions permissions report (md)`,
           content: Buffer.from(mdOut).toString('base64')
         })
       }
