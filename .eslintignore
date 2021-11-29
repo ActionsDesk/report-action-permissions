@@ -1,2 +1,4 @@
 dist/
 reports/
+
+*.t.js

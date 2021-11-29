@@ -2,3 +2,4 @@ dist/
 reports/
 
 package-lock.json
+*.t.js
