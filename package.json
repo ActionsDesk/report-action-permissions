@@ -1,6 +1,7 @@
 {
   "name": "report-action-permissions",
-  "version": "1.3.0",
+  "version": "1.4.0",
+  "type": "module",
   "description": "Action to create a CSV or Markdown report of GitHub Actions permissions",
   "keywords": [],
   "author": {
